@@ -1,0 +1,733 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -68.21,44.35 ]
+    },
+    "properties": {
+    "Park Code":"ACAD",
+    "Park Name":"Acadia National Park",
+    "State":"ME",
+    "Acres":47390
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -109.57,38.68 ]
+    },
+    "properties": {
+    "Park Code":"ARCH",
+    "Park Name":"Arches National Park",
+    "State":"UT",
+    "Acres":76519
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -102.5,43.75 ]
+    },
+    "properties": {
+    "Park Code":"BADL",
+    "Park Name":"Badlands National Park",
+    "State":"SD",
+    "Acres":242756
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -103.25,29.25 ]
+    },
+    "properties": {
+    "Park Code":"BIBE",
+    "Park Name":"Big Bend National Park",
+    "State":"TX",
+    "Acres":801163
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -80.08,25.65 ]
+    },
+    "properties": {
+    "Park Code":"BISC",
+    "Park Name":"Biscayne National Park",
+    "State":"FL",
+    "Acres":172924
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -107.72,38.57 ]
+    },
+    "properties": {
+    "Park Code":"BLCA",
+    "Park Name":"Black Canyon of the Gunnison National Park",
+    "State":"CO",
+    "Acres":32950
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -112.18,37.57 ]
+    },
+    "properties": {
+    "Park Code":"BRCA",
+    "Park Name":"Bryce Canyon National Park",
+    "State":"UT",
+    "Acres":35835
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -109.93,38.2 ]
+    },
+    "properties": {
+    "Park Code":"CANY",
+    "Park Name":"Canyonlands National Park",
+    "State":"UT",
+    "Acres":337598
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -111.17,38.2 ]
+    },
+    "properties": {
+    "Park Code":"CARE",
+    "Park Name":"Capitol Reef National Park",
+    "State":"UT",
+    "Acres":241904
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -104.44,32.17 ]
+    },
+    "properties": {
+    "Park Code":"CAVE",
+    "Park Name":"Carlsbad Caverns National Park",
+    "State":"NM",
+    "Acres":46766
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -119.42,34.01 ]
+    },
+    "properties": {
+    "Park Code":"CHIS",
+    "Park Name":"Channel Islands National Park",
+    "State":"CA",
+    "Acres":249561
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -80.78,33.78 ]
+    },
+    "properties": {
+    "Park Code":"CONG",
+    "Park Name":"Congaree National Park",
+    "State":"SC",
+    "Acres":26546
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -122.1,42.94 ]
+    },
+    "properties": {
+    "Park Code":"CRLA",
+    "Park Name":"Crater Lake National Park",
+    "State":"OR",
+    "Acres":183224
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.55,41.24 ]
+    },
+    "properties": {
+    "Park Code":"CUVA",
+    "Park Name":"Cuyahoga Valley National Park",
+    "State":"OH",
+    "Acres":32950
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -150.5,63.33 ]
+    },
+    "properties": {
+    "Park Code":"DENA",
+    "Park Name":"Denali National Park and Preserve",
+    "State":"AK",
+    "Acres":3372402
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -116.82,36.24 ]
+    },
+    "properties": {
+    "Park Code":"DEVA",
+    "Park Name":"Death Valley National Park",
+    "State":"CA, NV",
+    "Acres":4740912
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -82.87,24.63 ]
+    },
+    "properties": {
+    "Park Code":"DRTO",
+    "Park Name":"Dry Tortugas National Park",
+    "State":"FL",
+    "Acres":64701
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -80.93,25.32 ]
+    },
+    "properties": {
+    "Park Code":"EVER",
+    "Park Name":"Everglades National Park",
+    "State":"FL",
+    "Acres":1508538
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -153.30,67.78 ]
+    },
+    "properties": {
+    "Park Code":"GAAR",
+    "Park Name":"Gates Of The Arctic National Park and Preserve",
+    "State":"AK",
+    "Acres":7523898
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -114,48.8 ]
+    },
+    "properties": {
+    "Park Code":"GLAC",
+    "Park Name":"Glacier National Park",
+    "State":"MT",
+    "Acres":1013572
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -137,58.5 ]
+    },
+    "properties": {
+    "Park Code":"GLBA",
+    "Park Name":"Glacier Bay National Park and Preserve",
+    "State":"AK",
+    "Acres":3224840
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -114.3,38.98 ]
+    },
+    "properties": {
+    "Park Code":"GRBA",
+    "Park Name":"Great Basin National Park",
+    "State":"NV",
+    "Acres":77180
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -112.14,36.06 ]
+    },
+    "properties": {
+    "Park Code":"GRCA",
+    "Park Name":"Grand Canyon National Park",
+    "State":"AZ",
+    "Acres":1217403
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -105.51,37.73 ]
+    },
+    "properties": {
+    "Park Code":"GRSA",
+    "Park Name":"Great Sand Dunes National Park and Preserve",
+    "State":"CO",
+    "Acres":42984
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -83.53,35.68 ]
+    },
+    "properties": {
+    "Park Code":"GRSM",
+    "Park Name":"Great Smoky Mountains National Park",
+    "State":"TN, NC",
+    "Acres":521490
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -110.8,43.73 ]
+    },
+    "properties": {
+    "Park Code":"GRTE",
+    "Park Name":"Grand Teton National Park",
+    "State":"WY",
+    "Acres":309995
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -104.87,31.92 ]
+    },
+    "properties": {
+    "Park Code":"GUMO",
+    "Park Name":"Guadalupe Mountains National Park",
+    "State":"TX",
+    "Acres":86416
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -156.17,20.72 ]
+    },
+    "properties": {
+    "Park Code":"HALE",
+    "Park Name":"Haleakala National Park",
+    "State":"HI",
+    "Acres":29094
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -155.2,19.38 ]
+    },
+    "properties": {
+    "Park Code":"HAVO",
+    "Park Name":"Hawaii Volcanoes National Park",
+    "State":"HI",
+    "Acres":323431
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.05,34.51 ]
+    },
+    "properties": {
+    "Park Code":"HOSP",
+    "Park Name":"Hot Springs National Park",
+    "State":"AR",
+    "Acres":5550
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -88.55,48.1 ]
+    },
+    "properties": {
+    "Park Code":"ISRO",
+    "Park Name":"Isle Royale National Park",
+    "State":"MI",
+    "Acres":571790
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -115.9,33.79 ]
+    },
+    "properties": {
+    "Park Code":"JOTR",
+    "Park Name":"Joshua Tree National Park",
+    "State":"CA",
+    "Acres":789745
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -155,58.5 ]
+    },
+    "properties": {
+    "Park Code":"KATM",
+    "Park Name":"Katmai National Park and Preserve",
+    "State":"AK",
+    "Acres":3674530
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -149.65,59.92 ]
+    },
+    "properties": {
+    "Park Code":"KEFJ",
+    "Park Name":"Kenai Fjords National Park",
+    "State":"AK",
+    "Acres":669983
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -159.28,67.55 ]
+    },
+    "properties": {
+    "Park Code":"KOVA",
+    "Park Name":"Kobuk Valley National Park",
+    "State":"AK",
+    "Acres":1750717
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -153.42,60.97 ]
+    },
+    "properties": {
+    "Park Code":"LACL",
+    "Park Name":"Lake Clark National Park and Preserve",
+    "State":"AK",
+    "Acres":2619733
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -121.51,40.49 ]
+    },
+    "properties": {
+    "Park Code":"LAVO",
+    "Park Name":"Lassen Volcanic National Park",
+    "State":"CA",
+    "Acres":106372
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -86.1,37.18 ]
+    },
+    "properties": {
+    "Park Code":"MACA",
+    "Park Name":"Mammoth Cave National Park",
+    "State":"KY",
+    "Acres":52830
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -108.49,37.18 ]
+    },
+    "properties": {
+    "Park Code":"MEVE",
+    "Park Name":"Mesa Verde National Park",
+    "State":"CO",
+    "Acres":52122
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -121.75,46.85 ]
+    },
+    "properties": {
+    "Park Code":"MORA",
+    "Park Name":"Mount Rainier National Park",
+    "State":"WA",
+    "Acres":235625
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -121.2,48.7 ]
+    },
+    "properties": {
+    "Park Code":"NOCA",
+    "Park Name":"North Cascades National Park",
+    "State":"WA",
+    "Acres":504781
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -123.5,47.97 ]
+    },
+    "properties": {
+    "Park Code":"OLYM",
+    "Park Name":"Olympic National Park",
+    "State":"WA",
+    "Acres":922651
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -109.78,35.07 ]
+    },
+    "properties": {
+    "Park Code":"PEFO",
+    "Park Name":"Petrified Forest National Park",
+    "State":"AZ",
+    "Acres":93533
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -121.16,36.48 ]
+    },
+    "properties": {
+    "Park Code":"PINN",
+    "Park Name":"Pinnacles National Park",
+    "State":"CA",
+    "Acres":26606
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -124,41.3 ]
+    },
+    "properties": {
+    "Park Code":"REDW",
+    "Park Name":"Redwood National Park",
+    "State":"CA",
+    "Acres":112512
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -105.58,40.4 ]
+    },
+    "properties": {
+    "Park Code":"ROMO",
+    "Park Name":"Rocky Mountain National Park",
+    "State":"CO",
+    "Acres":265828
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -110.5,32.25 ]
+    },
+    "properties": {
+    "Park Code":"SAGU",
+    "Park Name":"Saguaro National Park",
+    "State":"AZ",
+    "Acres":91440
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -118.68,36.43 ]
+    },
+    "properties": {
+    "Park Code":"SEKI",
+    "Park Name":"Sequoia and Kings Canyon National Parks",
+    "State":"CA",
+    "Acres":865952
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -78.35,38.53 ]
+    },
+    "properties": {
+    "Park Code":"SHEN",
+    "Park Name":"Shenandoah National Park",
+    "State":"VA",
+    "Acres":199045
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -103.45,46.97 ]
+    },
+    "properties": {
+    "Park Code":"THRO",
+    "Park Name":"Theodore Roosevelt National Park",
+    "State":"ND",
+    "Acres":70447
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -92.88,48.5 ]
+    },
+    "properties": {
+    "Park Code":"VOYA",
+    "Park Name":"Voyageurs National Park",
+    "State":"MN",
+    "Acres":218200
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -103.48,43.57 ]
+    },
+    "properties": {
+    "Park Code":"WICA",
+    "Park Name":"Wind Cave National Park",
+    "State":"SD",
+    "Acres":28295
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -142,61 ]
+    },
+    "properties": {
+    "Park Code":"WRST",
+    "Park Name":"Wrangell - St Elias National Park and Preserve",
+    "State":"AK",
+    "Acres":8323148
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -110.5,44.6 ]
+    },
+    "properties": {
+    "Park Code":"YELL",
+    "Park Name":"Yellowstone National Park",
+    "State":"WY, MT, ID",
+    "Acres":2219791
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -119.5,37.83 ]
+    },
+    "properties": {
+    "Park Code":"YOSE",
+    "Park Name":"Yosemite National Park",
+    "State":"CA",
+    "Acres":761266
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -113.05,37.3 ]
+    },
+    "properties": {
+    "Park Code":"ZION",
+    "Park Name":"Zion National Park",
+    "State":"UT",
+    "Acres":146598
+    }
+  }
+]
+}
