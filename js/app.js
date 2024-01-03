@@ -1,5 +1,5 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-import * as L from "https://cdn.jsdelivr.net/npm/leaflet@1.9.3/+esm";
+// import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+// import * as L from "https://cdn.jsdelivr.net/npm/leaflet@1.9.3/+esm";
 
 // Set up div for map
 const app = d3
@@ -15,6 +15,8 @@ const map = L.map(mapElement.node(), {
   center: [50.0902, -95.7129],
   zoom: 3.4,
 });
+
+console.log(L);
 
 // Use OpenStreetMap basemap
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -520,3 +522,32 @@ map.on("zoom", function () {
     showPoints();
   }
 });
+
+// ping options
+let options = {
+  duration: 800,
+  fps: 32,
+  opacityRange: [1, 0],
+  radiusRange: [5, 12],
+};
+
+// add pings layer to map
+let paused = false;
+let pingLayer = L.pingLayer(options).addTo(pingMap);
+
+// get coordinates of pings based on slider
+let getCoords = function () {
+  //Math.floor(Math.random() * (max - min + 1)) + min;
+  let index = Math.floor(Math.random() * (v.data.length - 1 - 0 + 1)) + 0;
+  return [v.data[index].Longitude, v.data[index].Latitude, index];
+};
+
+// show pings
+let update = function () {
+  if (!paused) {
+    let result = getCoords();
+    pingLayer.ping([result[0], result[1]]);
+    window.setTimeout(update, 100 + Math.random() * 400);
+  }
+};
+window.setTimeout(update); // this ensures that the pings keep appearing - otherwise it will flash once and not reset
