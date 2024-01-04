@@ -533,7 +533,7 @@ let options = {
 
 // add pings layer to map
 let paused = false;
-let pingLayer = L.pingLayer(options).addTo(pingMap);
+let pingLayer = L.pingLayer(options).addTo(map);
 
 // get coordinates of pings based on slider
 let getCoords = function () {
