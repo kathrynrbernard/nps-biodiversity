@@ -443,8 +443,8 @@ function createPointMarker(feature) {
         // Create graphs
         createLeftGraph(feature, div);
         createRightGraph(feature, div);
-        // // pause pings
-        // paused = true;
+        // pause pings
+        paused = true;
       }, 200);
     }
   });
@@ -454,10 +454,9 @@ function createPointMarker(feature) {
     d3.select("#left").select("svg").remove();
     d3.select("#right").select("svg").remove();
     // restart pings
-    //paused = false;
-    //window.setTimeout(update);
+    paused = false;
+    window.setTimeout(update);
   });
-
   return marker;
 }
 
@@ -503,8 +502,8 @@ let onEachPolyFeature = function (feature, layer) {
         // Create graphs
         createLeftGraph(feature, div);
         createRightGraph(feature, div);
-        // // pause pings
-        // paused = true;
+        // pause pings
+        paused = true;
       }, 200);
     }
   });
@@ -514,8 +513,8 @@ let onEachPolyFeature = function (feature, layer) {
     d3.select("#left").select("svg").remove();
     d3.select("#right").select("svg").remove();
     // restart pings
-    //paused = false;
-    //window.setTimeout(update);
+    paused = false;
+    window.setTimeout(update);
   });
 };
 
@@ -547,7 +546,6 @@ let showPolygons = function () {
 
 // Update to points or polygons based on current zoom level
 map.on("zoom", function () {
-  console.log("on zoom");
   if (map.getZoom() >= 5 && pointsShown) {
     showPolygons();
   }
@@ -557,16 +555,16 @@ map.on("zoom", function () {
 });
 
 // Create range slider
-// new RangeSlider()
-//   .container("slider")
-//   .data(parks)
-//   .accessor((d) => d["Prop Risk"])
-//   //.aggregator((group) => group.values.length)
-//   //.onBrush(d=> /* Handle range values */)
+new RangeSlider()
+  .container(".slider")
+  .data(parks)
+  .accessor((d) => d["Prop Risk"])
+  //.aggregator((group) => group.values.length)
+  //.onBrush(d=> /* Handle range values */)
 
-//   .svgWidth(800)
-//   .svgHeight(100)
-//   .render();
+  .svgWidth(800)
+  .svgHeight(100)
+  .render();
 
 // ping options
 let options = {
