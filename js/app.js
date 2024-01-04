@@ -1,5 +1,6 @@
 // import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 // import * as L from "https://cdn.jsdelivr.net/npm/leaflet@1.9.3/+esm";
+import RangeSlider from "/js/range_slider.js";
 
 // Set up div for map
 const app = d3
@@ -15,8 +16,6 @@ const map = L.map(mapElement.node(), {
   center: [50.0902, -95.7129],
   zoom: 3.4,
 });
-
-console.log(L);
 
 // Use OpenStreetMap basemap
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -40,6 +39,43 @@ const marginLeft = 105;
 
 // Read in data about species for all the parks
 const data = await d3.csv("data/merged_data.csv");
+
+// Read in data about all parks
+const parks = await d3.csv("data/parks.csv");
+
+// Calculate initial metrics for parks
+// Define columns that count as "at risk" for conservation status
+const at_risk = [
+  "Extinct",
+  "Endangered",
+  "In Recovery",
+  "Threatened",
+  "Under Review",
+  "Species of Concern",
+  "Proposed Threatened",
+  "Proposed Endangered",
+];
+
+// Group by park name and conservation status, get number of species in each status in each park
+// Then calculate proportion of species in each park that are at risk
+d3.rollup(
+  data,
+  (v) => v.length,
+  (d) => d["Park Name"],
+  (d) => d["Conservation Status"]
+).forEach(function (d) {
+  // for each park
+  let sum = 0; // set sum of at risk species to 0
+  at_risk.forEach(function (k) {
+    // for each "at risk" column
+    let val = d.get(k);
+    if (val !== undefined) {
+      sum += d.get(k); // add to running total
+    }
+  });
+  d.set("Total At Risk", sum); // set data into the Map object
+  d.set("Prop Risk", d.get("Total At Risk") / (sum + d.get("No Concern"))); // get proportion of at risk species based on total number and set into Map object
+});
 
 // Define function to create left bar graph in Leaflet popup
 let createLeftGraph = function (feature, div) {
@@ -359,77 +395,74 @@ let calcCategoryStatusCounts = function (category_status_counts_int) {
   return array;
 };
 
-// Read in points data and create point markers for parks
-d3.csv("data/parks.csv").then((parks) => {
-  function createPointMarker(feature) {
-    const lon = feature.Longitude;
-    const lat = feature.Latitude;
-    const acres = feature.Acres;
-    const parkName = feature["Park Name"];
+// Create point markers for parks
+function createPointMarker(feature) {
+  const lon = feature.Longitude;
+  const lat = feature.Latitude;
+  const acres = feature.Acres;
+  const parkName = feature["Park Name"];
 
-    let markerStyle = {
-      radius: acres * 0.000005 < 3 ? 3 : acres * 0.000005, // radius for starting zoom level (3.4)
-      color: "#000080", // navy blue
-      fillColor: "#4E806A", // dark green
-      weight: 0.2,
-      opacity: 1,
-      fillOpacity: 0.9,
-    };
+  let markerStyle = {
+    radius: acres * 0.000005 < 3 ? 3 : acres * 0.000005, // radius for starting zoom level (3.4)
+    color: "#000080", // navy blue
+    fillColor: "#4E806A", // dark green
+    weight: 0.2,
+    opacity: 1,
+    fillOpacity: 0.9,
+  };
 
-    // Create marker and bind popup
-    const marker = L.circleMarker([lat, lon], markerStyle);
+  // Create marker and bind popup
+  const marker = L.circleMarker([lat, lon], markerStyle);
 
-    // Create divs to hold graphs
-    let div = document.createElement("div");
-    div.class = "container";
-    div.style =
-      "position: relative; display: flex; width: 950px; height: 300px;";
-    let left_div = document.createElement("div");
-    left_div.id = "left";
-    let right_div = document.createElement("div");
-    right_div.id = "right";
-    div.appendChild(left_div);
-    div.appendChild(right_div);
+  // Create divs to hold graphs
+  let div = document.createElement("div");
+  div.class = "container";
+  div.style = "position: relative; display: flex; width: 950px; height: 300px;";
+  let left_div = document.createElement("div");
+  left_div.id = "left";
+  let right_div = document.createElement("div");
+  right_div.id = "right";
+  div.appendChild(left_div);
+  div.appendChild(right_div);
 
-    marker.bindPopup(div, { maxWidth: 1000 });
+  marker.bindPopup(div, { maxWidth: 1000 });
 
-    let lastOpenedMarker = null; // Variable to keep track of the last opened marker
+  let lastOpenedMarker = null; // Variable to keep track of the last opened marker
 
-    marker.on("popupopen", function (e) {
-      lastOpenedMarker = e.popup._source; // Store the last opened marker
-    });
+  marker.on("popupopen", function (e) {
+    lastOpenedMarker = e.popup._source; // Store the last opened marker
+  });
 
-    // On click, show the graph and pause pings
-    marker.on("click", function (e) {
-      if (lastOpenedMarker) {
-        // Close the currently opened popup
-        lastOpenedMarker.closePopup();
-        setTimeout(function () {
-          lastOpenedMarker.openPopup();
-          // Create graphs
-          createLeftGraph(feature, div);
-          createRightGraph(feature, div);
-          // // pause pings
-          // paused = true;
-        }, 200);
-      }
-    });
+  // On click, show the graph and pause pings
+  marker.on("click", function (e) {
+    if (lastOpenedMarker) {
+      // Close the currently opened popup
+      lastOpenedMarker.closePopup();
+      setTimeout(function () {
+        lastOpenedMarker.openPopup();
+        // Create graphs
+        createLeftGraph(feature, div);
+        createRightGraph(feature, div);
+        // // pause pings
+        // paused = true;
+      }, 200);
+    }
+  });
 
-    // When popup is closed, clean up graphs and re-start pings
-    marker.on("popupclose", function (e) {
-      d3.select("#left").select("svg").remove();
-      d3.select("#right").select("svg").remove();
-      // restart pings
-      //paused = false;
-      //window.setTimeout(update);
-    });
+  // When popup is closed, clean up graphs and re-start pings
+  marker.on("popupclose", function (e) {
+    d3.select("#left").select("svg").remove();
+    d3.select("#right").select("svg").remove();
+    // restart pings
+    //paused = false;
+    //window.setTimeout(update);
+  });
 
-    return marker;
-  }
+  return marker;
+}
 
-  parkPoints = L.layerGroup(parks.map(createPointMarker), {});
-  parkPoints.addTo(map);
-});
+parkPoints = L.layerGroup(parks.map(createPointMarker), {});
+parkPoints.addTo(map);
 
 // Styling and markers for polygons
 let polyStyle = {
@@ -523,6 +556,18 @@ map.on("zoom", function () {
   }
 });
 
+// Create range slider
+// new RangeSlider()
+//   .container("slider")
+//   .data(parks)
+//   .accessor((d) => d["Prop Risk"])
+//   //.aggregator((group) => group.values.length)
+//   //.onBrush(d=> /* Handle range values */)
+
+//   .svgWidth(800)
+//   .svgHeight(100)
+//   .render();
+
 // ping options
 let options = {
   duration: 800,
@@ -538,8 +583,8 @@ let pingLayer = L.pingLayer(options).addTo(map);
 // get coordinates of pings based on slider
 let getCoords = function () {
   //Math.floor(Math.random() * (max - min + 1)) + min;
-  let index = Math.floor(Math.random() * (v.data.length - 1 - 0 + 1)) + 0;
-  return [v.data[index].Longitude, v.data[index].Latitude, index];
+  let index = Math.floor(Math.random() * (parks.length - 1 - 0 + 1)) + 0;
+  return [parks[index].Longitude, parks[index].Latitude, index];
 };
 
 // show pings
