@@ -58,12 +58,14 @@ const at_risk = [
 
 // Group by park name and conservation status, get number of species in each status in each park
 // Then calculate proportion of species in each park that are at risk
-d3.rollup(
+let cons_status_counts = d3.rollup(
   data,
   (v) => v.length,
   (d) => d["Park Name"],
   (d) => d["Conservation Status"]
-).forEach(function (d) {
+);
+
+cons_status_counts.forEach(function (d) {
   // for each park
   let sum = 0; // set sum of at risk species to 0
   at_risk.forEach(function (k) {
@@ -75,6 +77,11 @@ d3.rollup(
   });
   d.set("Total At Risk", sum); // set data into the Map object
   d.set("Prop Risk", d.get("Total At Risk") / (sum + d.get("No Concern"))); // get proportion of at risk species based on total number and set into Map object
+});
+
+// Set the data back into parks
+parks.forEach(function (d) {
+  d["Prop Risk"] = cons_status_counts.get(d["Park Name"]).get("Prop Risk");
 });
 
 // Define function to create left bar graph in Leaflet popup
@@ -555,18 +562,21 @@ map.on("zoom", function () {
 });
 
 // Create range slider
-new RangeSlider()
+let slider_data = [];
+let slider_data_length = 0;
+let slider = new RangeSlider()
   .container(".slider")
   .data(parks)
   .accessor((d) => d["Prop Risk"])
-  //.aggregator((group) => group.values.length)
-  //.onBrush(d=> /* Handle range values */)
-
+  .onBrush((d) => {
+    slider_data = d.data;
+    slider_data_length = d.data.length;
+  })
   .svgWidth(800)
   .svgHeight(100)
   .render();
 
-// ping options
+// Ping options
 let options = {
   duration: 800,
   fps: 32,
@@ -574,18 +584,25 @@ let options = {
   radiusRange: [5, 12],
 };
 
-// add pings layer to map
+// Add pings layer to map
 let paused = false;
 let pingLayer = L.pingLayer(options).addTo(map);
 
-// get coordinates of pings based on slider
+// Get coordinates of parks to ping
 let getCoords = function () {
   //Math.floor(Math.random() * (max - min + 1)) + min;
+  // if slider has a selection, use current slider data
+  if (slider_data_length > 0) {
+    let index =
+      Math.floor(Math.random() * (slider_data_length - 1 - 0 + 1)) + 0;
+    return [slider_data[index].Longitude, slider_data[index].Latitude, index];
+  }
+  // if slider does not have a selection, use all parks
   let index = Math.floor(Math.random() * (parks.length - 1 - 0 + 1)) + 0;
   return [parks[index].Longitude, parks[index].Latitude, index];
 };
 
-// show pings
+// Show pings
 let update = function () {
   if (!paused) {
     let result = getCoords();

@@ -385,19 +385,19 @@ export default class RangeSlider {
       .attr("fill", "white")
       .attr("stroke-opacity", 0.4);
 
-    function brushStarted() {
-      if (d3.event.selection) {
-        attrs.startSelection = d3.event.selection[0];
+    function brushStarted(event, d) {
+      if (event.selection) {
+        attrs.startSelection = event.selection[0];
       }
     }
 
-    function brushEnded() {
+    function brushEnded(event, d) {
       const attrs = that.getChartState();
       //debugger;
       var minX = attrs.minX;
       var maxX = attrs.maxX;
 
-      if (!d3.event.selection) {
+      if (!event.selection) {
         handle.attr("display", "none");
 
         output({
@@ -405,9 +405,10 @@ export default class RangeSlider {
         });
         return;
       }
-      if (d3.event.sourceEvent.type === "brush") return;
 
-      var d0 = d3.event.selection.map(scaleX.invert),
+      if (event.sourceEvent.type === "brush") return;
+
+      var d0 = event.selection.map(scaleX.invert),
         d1 = d0.map(d3.timeDay.round);
 
       if (d1[0] >= d1[1]) {
@@ -416,28 +417,22 @@ export default class RangeSlider {
       }
     }
 
-    function brushed(d) {
-      if (d3.event.sourceEvent.type === "brush") return;
+    function brushed(event, d) {
+      if (event.sourceEvent.type === "brush") return;
       if (attrs.freezeMin) {
-        if (d3.event.selection[0] < attrs.startSelection) {
-          d3.event.selection[1] = Math.min(
-            d3.event.selection[0],
-            d3.event.selection[1]
-          );
+        if (event.selection[0] < attrs.startSelection) {
+          event.selection[1] = Math.min(event.selection[0], event.selection[1]);
         }
-        if (d3.event.selection[0] >= attrs.startSelection) {
-          d3.event.selection[1] = Math.max(
-            d3.event.selection[0],
-            d3.event.selection[1]
-          );
+        if (event.selection[0] >= attrs.startSelection) {
+          event.selection[1] = Math.max(event.selection[0], event.selection[1]);
         }
 
-        d3.event.selection[0] = 0;
-        d3.select(this).call(d3.event.target.move, d3.event.selection);
+        event.selection[0] = 0;
+        d3.select(this).call(event.target.move, event.selection);
       }
 
-      var d0 = d3.event.selection.map(scaleX.invert);
-      const s = d3.event.selection;
+      var d0 = event.selection.map(scaleX.invert);
+      const s = event.selection;
 
       handle.attr("display", null).attr("transform", function (d, i) {
         return (
