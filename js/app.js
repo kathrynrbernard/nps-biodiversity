@@ -1,5 +1,3 @@
-// import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-// import * as L from "https://cdn.jsdelivr.net/npm/leaflet@1.9.3/+esm";
 import RangeSlider from "/js/range_slider.js";
 
 // Set up div for map
