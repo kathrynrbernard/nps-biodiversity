@@ -99,6 +99,12 @@ let createLeftGraph = function (feature, div) {
   let filter = data.filter(function (d) {
     return d["Park Name"] == parkName;
   });
+  if (filter.length == 0) {
+    filter = data.filter(function (d) {
+      return d["Park Name"] == feature.properties["ALT_NAME"];
+    });
+  }
+
   // calculate counts for each category of species
   let category_counts = d3.rollup(
     filter,
@@ -203,9 +209,15 @@ let createRightGraph = function (feature, div) {
     // if point
     parkName = feature["Park Name"];
   }
+  console.log(parkName);
   let filter = data.filter(function (d) {
     return d["Park Name"] == parkName;
   });
+  if (filter.length == 0) {
+    filter = data.filter(function (d) {
+      return d["Park Name"] == feature.properties["ALT_NAME"];
+    });
+  }
 
   // calculate counts for each status for the park that has been clicked on
   let category_status_counts_int = d3.rollup(
@@ -480,6 +492,41 @@ let polyStyle = {
 };
 
 let onEachPolyFeature = function (feature, layer) {
+  switch (feature.properties.UNIT_NAME) {
+    case "Hawai'i Volcanoes National Park":
+      feature.properties.ALT_NAME = "Hawaii Volcanoes National Park";
+      break;
+    case "Gates of the Arctic National Park":
+      feature.properties.ALT_NAME =
+        "Gates Of The Arctic National Park and Preserve";
+      break;
+    case "Wrangell-St. Elias National Park":
+      feature.properties.ALT_NAME =
+        "Wrangell - St Elias National Park and Preserve";
+      break;
+    case "Glacier Bay National Park":
+      feature.properties.ALT_NAME = "Glacier Bay National Park and Preserve";
+      break;
+    case "Katmai National Park":
+      feature.properties.ALT_NAME = "Katmai National Park and Preserve";
+      break;
+    case "Lake Clark National Park":
+      feature.properties.ALT_NAME = "Lake Clark National Park and Preserve";
+      break;
+    case "Sequoia National Park":
+      feature.properties.ALT_NAME = "Sequoia and Kings Canyon National Parks";
+      break;
+    case "Kings Canyon National Park":
+      feature.properties.ALT_NAME = "Sequoia and Kings Canyon National Parks";
+      break;
+    case "Denali National Park":
+      feature.properties.ALT_NAME = "Denali National Park and Preserve";
+      break;
+    case "Great Sand Dunes National Park and Preserve":
+      feature.properties.ALT_NAME =
+        "Great Sand Dunes National Park and Preserve";
+      break;
+  }
   // Create divs to hold graphs
   let div = document.createElement("div");
   div.class = "container";
@@ -507,6 +554,7 @@ let onEachPolyFeature = function (feature, layer) {
       setTimeout(function () {
         lastOpenedMarker.openPopup();
         // Create graphs
+        console.log(feature);
         createLeftGraph(feature, div);
         createRightGraph(feature, div);
         // pause pings
@@ -530,6 +578,7 @@ $.ajax({
   dataType: "json",
   url: "data/nps_polygons_filter.geojson",
   success: function (data) {
+    console.log(data.features);
     parkPolygons = L.geoJson(data, {
       style: polyStyle,
       onEachFeature: onEachPolyFeature,
