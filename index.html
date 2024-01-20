@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>Biodiversity in National Parks</title>
 
     <!--put your external stylesheet links here-->
     <!-- leaflet-->
@@ -48,16 +48,28 @@
 
     <script src="js/app.js" type="module" async></script>
 
+    <!-- Page Title -->
+    <div style="font-family: Georgia, 'Times New Roman', Times, serif">
+      Biodiversity in National Parks
+    </div>
+
+    <!-- Map -->
+    <div id="app" style="margin-top: 50px"></div>
+
+    <!-- Range Slider -->
     <div
       class="slider"
       style="
-        margin-top: 50px;
-        border-radius: 5px;
-        padding-top: 30px;
-        padding-left: 20px;
-        background-color: #30363e;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 850px;
+        background-color: aliceblue;
+        font-family: Georgia, 'Times New Roman', Times, serif;
       "
-    ></div>
-    <div id="app" style="margin-top: 200px"></div>
+    >
+      Drag the slider over a range of data to emphasize parks with a certain
+      proportion of at-risk species.
+    </div>
   </body>
 </html>
