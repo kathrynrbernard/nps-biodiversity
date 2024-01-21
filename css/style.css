@@ -1,6 +1,7 @@
-/*Add CSS styles here*/
-.countries {
-    fill: #FFF;
-    stroke: #CCC;
-    stroke-width: 2px;
-}
+.visible, .invisible {
+    opacity: 0.0;
+    transition: opacity 0.5s ease;
+  }
+  .visible {
+    opacity: 1.0;
+  }
