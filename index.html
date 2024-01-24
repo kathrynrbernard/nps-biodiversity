@@ -21,38 +21,56 @@
   <body>
     <!-- jquery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- leaflet -->
+    <script src="/node_modules/leaflet/dist/leaflet-src.js"></script>
+    <!-- d3 -->
     <script src="/node_modules/d3/dist/d3.js" charset="utf-8"></script>
+    <!-- Pings for map -->
     <script
       src="/node_modules/d3-hexbin/build/d3-hexbin.js"
       charset="utf-8"
     ></script>
-    <script src="/node_modules/leaflet/dist/leaflet-src.js"></script>
     <script src="leaflet-d3.js" charset="utf-8"></script>
+    <!-- Scrollytelling -->
+    <script src="/node_modules/scrollama/build/scrollama.js"></script>
 
-    <script src="js/app.js" type="module" async></script>
+    <!-- <script src="js/app.js" type="module" async></script> -->
+    <script src="js/scroll.js" type="module" async></script>
 
     <!-- Page Title -->
     <div style="font-family: Georgia, 'Times New Roman', Times, serif">
       Biodiversity in National Parks
     </div>
 
-    <!-- Map -->
-    <div id="app" style="margin-top: 50px"></div>
+    <!-- Scrollytelling setup -->
+    <main>
+      <section id="intro">
+        <h1 class="intro__hed">Sticky Side Example</h1>
+        <p class="intro__dek">Start scrolling to see how it works.</p>
+      </section>
 
-    <!-- Range Slider -->
-    <div
-      class="slider"
-      style="
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 850px;
-        background-color: aliceblue;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-      "
-    >
-      Drag the slider over a range of data to emphasize parks with a certain
-      proportion of at-risk species.
-    </div>
+      <section id="scroll">
+        <article>
+          <div class="step" data-step="1">
+            <p>STEP 1</p>
+          </div>
+          <div class="step" data-step="2">
+            <p>STEP 2</p>
+          </div>
+          <div class="step" data-step="3">
+            <p>STEP 3</p>
+          </div>
+          <div class="step" data-step="4">
+            <p>STEP 4</p>
+          </div>
+        </article>
+
+        <figure>
+          <p>0</p>
+        </figure>
+      </section>
+
+      <section id="outro"></section>
+    </main>
   </body>
 </html>
